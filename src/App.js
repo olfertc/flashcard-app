@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Card from "./card/card.component";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      cards: [
+        {id: 1, japanese: "Japanese", english: "English"},
+        {id: 2, japanese: "Japanese_2", english: "English_2"},
+      ],
+      currentCard: {}
+    }
+  }
+
+componentDidMount() {
+  const currentCards = this.state.cards;
+
+  this.setState({
+    cards: currentCards,
+    currentCard: this.getRandomCard(currentCards)
+  })
+}
+
+getRandomCard(currentCards) {
+  var card = currentCards[Math.floor(Math.random() * currentCards.length)];
+  return(card);
+}
+
+updateCard() {
+  const currentCards = this.state.cards;
+  this.setState({
+    cards: currentCards,
+    currentCard: this.getRandomCard(currentCards)
+  })
+}
+
+  render() {
+    return (
+      <div className="App">
+      <h1>Flash Cards - Learn Japanese</h1>
+        <div className="cards">
+        <Card front="Watashi" back="I"/>
+        <Card front="Nihon" back="Japan"/>
+        <Card front="Ki" back="Tree"/>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
