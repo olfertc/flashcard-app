@@ -1,51 +1,28 @@
 import React from "react";
 import "./App.css";
-import Card from "./card/card.component";
+import CardList from "./card-list/card-list.component";
+// import MatchButton from './match-button/match-button-component';
+// import FlashCardButton from './flashcard-button/flashcard-button-component';
+import KANA_DATA from "./kana.data";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      cards: [
-        {id: 1, japanese: "Japanese", english: "English"},
-        {id: 2, japanese: "Japanese_2", english: "English_2"},
-      ],
-      currentCard: {}
-    }
+      kana_chars: KANA_DATA,
+      //category: ["Kana", "Hiragana", "Katakana"],
+    };
   }
 
-componentDidMount() {
-  const currentCards = this.state.cards;
-
-  this.setState({
-    cards: currentCards,
-    currentCard: this.getRandomCard(currentCards)
-  })
-}
-
-getRandomCard(currentCards) {
-  var card = currentCards[Math.floor(Math.random() * currentCards.length)];
-  return(card);
-}
-
-updateCard() {
-  const currentCards = this.state.cards;
-  this.setState({
-    cards: currentCards,
-    currentCard: this.getRandomCard(currentCards)
-  })
-}
-
   render() {
+    const { kana_chars } = this.state;
+    //const { category } = this.state;
+
     return (
       <div className="App">
-      <h1>Flash Cards - Learn Japanese</h1>
-        <div className="cards">
-        <Card front="Watashi" back="I"/>
-        <Card front="Nihon" back="Japan"/>
-        <Card front="Ki" back="Tree"/>
-        </div>
+        <h1> Let's Learn Japanese! </h1>
+        <CardList kana_chars={kana_chars} />
       </div>
     );
   }

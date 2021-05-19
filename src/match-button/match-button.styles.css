@@ -1,0 +1,16 @@
+.matching {
+    height: 60px;
+    width: 120px;
+    font-size: 18px;;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    background-color: rgb(241, 97, 210);
+    border: 2px solid #757474;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 10px;
+}
+
+.matching:hover {
+    background-color: rgb(175, 82, 155);
+}

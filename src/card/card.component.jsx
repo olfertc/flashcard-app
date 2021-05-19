@@ -1,14 +1,14 @@
 import React from "react";
 import "./card.styles.css";
 
-const Card = ({ front, back }) => (
-  <div className="card">
+const Card = (props) => ( // renders one card
+  <div className="card-container" onClick={() => this.handleClick()}>
     <div className="front">
-      <div className="japanese">{front}</div>
+      <h2 className="japanese">{ props.kana_char.hiragana_char } / { props.kana_char.katakana_char }</h2>
     </div>
-    {/*<div className="back">
-      <div className="english">{back}</div>}
-    </div>*/}
+    <div className="back">
+      <h2 className="english">{ props.kana_char.romaji}</h2>
+    </div>
   </div>
 );
 
