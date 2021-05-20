@@ -12,4 +12,36 @@
     background-color: rgb(255, 255, 255);
     cursor: pointer;
     user-select: none;
+    perspective: 1000px;
+    
+}
+
+.card {
+    transition: ease-in;
+    transform-style: preserve-3d;
+}
+
+.card-container:hover {
+    display: inline;
+    transform: rotateY(180deg);
+    transition: all 0.8s ease-in-out;
+}
+
+.front, .back {
+    backface-visibility: hidden;
+}
+
+.card-container .back {
+    display: none;
+    transform: rotateY(180deg);
+}
+
+.card-button {
+    color: inherit;
+    background-color: inherit;
+    font: inherit;
+    padding: 0;
+    border: none;
+    border-radius: inherit;
+    cursor: inherit;
 }

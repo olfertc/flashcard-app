@@ -11,13 +11,17 @@ class App extends React.Component {
 
     this.state = {
       kana_chars: KANA_DATA,
-      //category: ["Kana", "Hiragana", "Katakana"],
     };
   }
 
   render() {
     const { kana_chars } = this.state;
-    //const { category } = this.state;
+    const getTenCards = kana_chars.filter(char => char.id < 11);
+    console.log(getTenCards);
+    
+    const shuffled_kana_chars = [...kana_chars].sort(() => Math.random() - Math.random());
+    const getTenRandomCards = shuffled_kana_chars.slice(0,10);
+    console.log(getTenRandomCards);
 
     return (
       <div className="App">
