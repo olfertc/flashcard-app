@@ -1,4 +1,11 @@
-const KANA_DATA = [
+export interface Kana {
+    id: number,
+    hiragana_char: string;
+    katakana_char: string;
+    romaji: string;
+}
+
+const KANA_DATA: Kana[] = [
     {
         id: 1,
         hiragana_char: "あ",
@@ -470,7 +477,7 @@ const KANA_DATA = [
     {
         id: 79,
         hiragana_char: "しゅ",
-        katakana_char:  "シュ",
+        katakana_char: "シュ",
         romaji: "shu"
     },
     {
@@ -530,7 +537,7 @@ const KANA_DATA = [
     {
         id: 89,
         hiragana_char: "ひょ",
-        katakana_char:  "ヒョ",
+        katakana_char: "ヒョ",
         romaji: "hyo"
     },
     {
@@ -638,7 +645,7 @@ const KANA_DATA = [
     {
         id: 107,
         hiragana_char: "びょ",
-        katakana_char:  "ヒョ",
+        katakana_char: "ヒョ",
         romaji: "byo"
     },
     {
