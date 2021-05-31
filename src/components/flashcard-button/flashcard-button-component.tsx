@@ -1,5 +1,5 @@
 import React from "react";
-import "./flashcard-button.styles.css";
+import "./flashcard-button.styles.scss";
 
 class FlashCardButton extends React.Component {
   handleClick() {

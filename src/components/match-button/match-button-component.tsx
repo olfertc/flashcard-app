@@ -1,5 +1,5 @@
 import React from "react";
-import "./match-button.styles.css";
+import "./match-button.styles.scss";
 
 class MatchButton extends React.Component {
   handleClick() {}
