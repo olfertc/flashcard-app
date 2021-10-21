@@ -17,9 +17,11 @@ class HomePage extends React.Component<{}, AppState> {
 
     render() {
         const { kana_chars } = this.state;
+        
         return (<div className='home-page'>
-
             <h1> Let's Learn Japanese! </h1>
+            <h2>Study</h2>
+            <h3> click on a card to see the romaji translation </h3>
             <CardList kana_chars={kana_chars} />
         </div>
         );

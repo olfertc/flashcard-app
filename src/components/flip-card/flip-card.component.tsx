@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Kana } from "../../kana.data";
-import "./card.styles.scss";
+import "./flip-card.styles.scss";
 
 interface CardProps {
   kana_char: Kana
 }
 
-const Card = (props: CardProps) => {
+const FlipCard = (props: CardProps) => {
   const [show_back, toggleCardBack] = useState<boolean>(false);
 
   return (
@@ -31,4 +31,4 @@ const Card = (props: CardProps) => {
   );
 };
 
-export default Card;
+export default FlipCard;

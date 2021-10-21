@@ -1,0 +1,29 @@
+.card-front {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  line-height: 48px;
+  width: 216px;
+  text-align: center;
+  margin: 18px;
+  border: 2px solid #757474;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: rgb(255, 255, 255);
+  user-select: none;
+}
+
+.quiz-card {
+  margin: auto;
+}
+
+.quiz-card--matched {
+  border: 3px solid rgb(67, 199, 67);
+}
+
+.text-input {
+  border: 2px solid #eee;
+  border-radius: 3px;
+  padding: 0.5rem;
+}
