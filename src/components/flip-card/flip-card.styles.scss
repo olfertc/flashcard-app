@@ -13,4 +13,9 @@
     background-color: rgb(255, 255, 255);
     cursor: pointer;
     user-select: none;
+
+    &:hover {
+        background-color: darken(white, 10);
+        cursor: pointer;
+      }
 }

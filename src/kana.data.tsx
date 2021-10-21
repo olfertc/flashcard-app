@@ -5,6 +5,14 @@ export interface Kana {
     romaji: string;
 }
 
+export interface QuizKana extends Kana {
+    matched?: boolean;
+}
+
+export interface MatchingKana extends Kana {
+    matches?: boolean;
+}
+
 const KANA_DATA: Kana[] = [
     {
         id: 1,
