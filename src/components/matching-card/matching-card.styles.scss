@@ -45,3 +45,11 @@
 .matching-card {
   margin: auto;
 }
+
+.matching-card--active {
+  border-color: yellow;
+}
+
+.matching-card--matched {
+  border-color: green;
+}

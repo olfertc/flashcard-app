@@ -12,6 +12,11 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: rgb(255, 255, 255);
   user-select: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e8e8e8;
+  }
 }
 
 .quiz-card {
@@ -19,7 +24,11 @@
 }
 
 .quiz-card--matched {
-  border: 3px solid rgb(67, 199, 67);
+  border-color: rgb(67, 199, 67);
+}
+
+.quiz-card--incorrect {
+  border-color: rgb(199, 67, 78);
 }
 
 .text-input {

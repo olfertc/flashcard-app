@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import QuizCard from '../quiz-card/quiz-card.component';
 import { Kana, QuizKana } from "../../kana.data";
 import './quiz-card-list.styles.scss';
@@ -9,15 +9,8 @@ type QuizCardListProps = {
 }
 
 const QuizCardList = ({ kana_chars, updateAnswer }: QuizCardListProps) => {
-    const [kanaChars, setKanaChars] = useState([])
-
-
-    useEffect(() => {
-        setKanaChars(kana_chars.sort(() => Math.random() - Math.random()).slice(0, 16))
-    }, [])
-
     const getRandomKanaCards = () => {
-        return kanaChars
+        return kana_chars
             .map((kana_char: Kana) => <QuizCard key={kana_char.id} kana_char={kana_char} updateAnswer={updateAnswer} />)
     }
 
