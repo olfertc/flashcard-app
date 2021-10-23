@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { QuizKana } from "../../kana.data";
 import './quiz-card.styles.scss';
 
@@ -8,6 +8,7 @@ type CardProps = {
 }
 
 const QuizCard = ({ kana_char, updateAnswer }: CardProps) => {
+  const [flipped, setFlipped] = useState(false);
 
   const handleAnswerChanged = ($event: React.ChangeEvent<HTMLInputElement>) => {
     updateAnswer({
@@ -16,12 +17,24 @@ const QuizCard = ({ kana_char, updateAnswer }: CardProps) => {
     })
   }
 
+  const onClick = () => {
+    setFlipped(prev => !prev);
+  }
+
   return (
     <div className='quiz-card'>
-      <div className={`card-front ${kana_char.matched ? 'quiz-card--matched' : ''}`}>
-        <h2 className="japanese">
-          {kana_char.hiragana_char} / {kana_char.katakana_char}
-        </h2>
+      <div className={`card-front ${kana_char.matched ? 'quiz-card--matched' : ''}`} onClick={onClick}>
+        {!flipped && (
+          <h2 className="japanese">
+            {kana_char.hiragana_char} / {kana_char.katakana_char}
+          </h2>
+        )}
+
+        {flipped && (
+          <h2 className="japanese">
+            {kana_char.romaji}
+          </h2>
+        )}
       </div>
       <input
         className='text-input'

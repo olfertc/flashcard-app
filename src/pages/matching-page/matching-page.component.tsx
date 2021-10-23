@@ -10,6 +10,20 @@ const MatchingPage = () => {
   const [matchingChars, setMatchingChars] = useState<MatchingKana[]>(KANA_DATA.slice(0, NUM_OF_CARDS));
 
   // setMatchingChars(matchingChars);
+  const setMatched = (card: MatchingKana) => {
+    const matched = matchingChars.map((c: MatchingKana) => {
+      if (c.id === card.id) {
+        return {
+          ...c,
+          matched: true
+        }
+      }
+
+      return c;
+    })
+
+    setMatchingChars(matched)
+  }
 
   return (
     <div className="matching-page">
@@ -17,7 +31,7 @@ const MatchingPage = () => {
       <h2>Matching</h2>
       <h3>click on two cards to match the kana with the romaji translation</h3>
       <span className='score'>Score: {+ "/15"}</span>
-      <MatchingCardList kana_chars={matchingChars} />
+      <MatchingCardList kana_chars={matchingChars} setMatched={setMatched} />
     </div>
   )
 }
