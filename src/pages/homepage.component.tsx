@@ -1,9 +1,9 @@
 import React from "react";
 import CardList from "../components/card-list/card-list.component";
-import KANA_DATA, { Kana } from "../kana.data";
+import CHARACTERS, { Character } from "../character.data";
 
 interface AppState {
-    kana_chars: Kana[];
+    kana_chars: Character[];
 }
 
 class HomePage extends React.Component<{}, AppState> {
@@ -11,7 +11,7 @@ class HomePage extends React.Component<{}, AppState> {
         super(props);
 
         this.state = {
-            kana_chars: KANA_DATA,
+            kana_chars: CHARACTERS,
         };
     }
 

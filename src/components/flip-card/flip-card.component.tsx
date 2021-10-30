@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Kana } from "../../kana.data";
+import { Character } from "../../character.data";
 import "./flip-card.styles.scss";
 
 interface CardProps {
-  kana_char: Kana
+  kana_char: Character
 }
 
 const FlipCard = (props: CardProps) => {

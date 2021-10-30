@@ -1,19 +1,19 @@
-export interface Kana {
+export interface Character {
     id: number,
     hiragana_char: string;
     katakana_char: string;
     romaji: string;
 }
 
-export interface QuizKana extends Kana {
+export interface QuizCharacter extends Character {
     matched?: boolean;
 }
 
-export interface MatchingKana extends Kana {
-    matches?: boolean;
+export interface MatchingCharacter extends Character {
+    matched?: boolean;
 }
 
-const KANA_DATA: Kana[] = [
+const CHARACTERS: Character[] = [
     {
         id: 1,
         hiragana_char: "あ",
@@ -676,4 +676,4 @@ const KANA_DATA: Kana[] = [
     },
 ]
 
-export default KANA_DATA;
+export default CHARACTERS;

@@ -1,10 +1,10 @@
 import React from 'react';
 import FlipCard from '../flip-card/flip-card.component';
-import { Kana } from "../../kana.data";
+import { Character } from "../../character.data";
 import './card-list.styles.scss';
 
 interface CardListProps {
-    kana_chars: Kana[]
+    kana_chars: Character[]
   }
 
 const CardList = (props: CardListProps) => { // renders the list of all cards

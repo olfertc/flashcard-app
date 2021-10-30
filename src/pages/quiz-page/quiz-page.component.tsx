@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import QuizCardList from '../../components/quiz-card-list/quiz-card-list.component';
-import KANA_DATA, { QuizKana } from '../../kana.data';
+import CHARACTERS, { QuizCharacter } from '../../character.data';
 
 import './quiz-page.styles.scss';
 
 const NUM_OF_CARDS = 16;
 
 const QuizPage = () => {
-  const [quizChars, setQuizChars] = useState<QuizKana[]>(KANA_DATA.slice(0, NUM_OF_CARDS)); // need to get random here
+  const [quizChars, setQuizChars] = useState<QuizCharacter[]>(CHARACTERS.slice(0, NUM_OF_CARDS)); // need to get random here
 
-  const handleUpdateAnswer = (answer: QuizKana) => {
-    const updatedAnswers = quizChars.map((kana: QuizKana) => {
+  const handleUpdateAnswer = (answer: QuizCharacter) => {
+    const updatedAnswers = quizChars.map((kana: QuizCharacter) => {
       if (kana.id === answer.id) {
         return {
           ...kana,
@@ -24,7 +24,7 @@ const QuizPage = () => {
 
   const getTotalMatched = () => {
     return quizChars
-      .filter((char: QuizKana) => char.matched)
+      .filter((char: QuizCharacter) => char.matched)
       .length;
   }
 

@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css";
 
 // import CardList from "./components/card-list/card-list.component";
-// import KANA_DATA, { Kana } from "./kana.data";
+// import CHARACTERS, { Character } from "./character.data";
 
 import HomePage from "./pages/homepage.component";
 import MatchingPage from "./pages/matching-page/matching-page.component";
@@ -11,12 +11,12 @@ import QuizPage from "./pages/quiz-page/quiz-page.component";
 import Header from "./components/header/header.component";
 
 // interface AppState {
-//   kana_chars: Kana[];
+//   kana_chars: Character[];
 // }
 
 const App = () => {
   // const { kana_chars } = this.state;
-  // const getFirstTenCards = kana_chars.filter((char: Kana) => char.id < 11);
+  // const getFirstTenCards = kana_chars.filter((char: Character) => char.id < 11);
   // console.log(getFirstTenCards);
 
   // const shuffled_kana_chars = [...kana_chars].sort(() => Math.random() - Math.random());
