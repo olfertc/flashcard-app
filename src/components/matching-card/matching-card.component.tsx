@@ -1,11 +1,11 @@
 import React from 'react';
-import { MatchingKana } from "../../kana.data";
+import { MatchingCharacter } from "../../character.data";
 import './matching-card.styles.scss';
 
 type CardProps = {
-  kana_char: MatchingKana & { matched?: boolean },
-  setActiveCard: (kana_char: MatchingKana) => void,
-  active: MatchingKana
+  kana_char: MatchingCharacter & { matched?: boolean },
+  setActiveCard: (kana_char: MatchingCharacter) => void,
+  active: MatchingCharacter
 }
 
 const MatchingCard = ({ kana_char, setActiveCard, active }: CardProps) => {

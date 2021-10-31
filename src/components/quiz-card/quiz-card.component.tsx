@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { QuizKana } from "../../kana.data";
+import { QuizCharacter } from "../../character.data";
 import './quiz-card.styles.scss';
 
 type CardProps = {
-  kana_char: QuizKana
-  updateAnswer: (answer: QuizKana) => void
+  kana_char: QuizCharacter
+  updateAnswer: (answer: QuizCharacter) => void
 }
 
 const QuizCard = ({ kana_char, updateAnswer }: CardProps) => {
