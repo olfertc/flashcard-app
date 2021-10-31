@@ -5,8 +5,14 @@ export interface Character {
     romaji: string;
 }
 
+export enum QuizCharacterState {
+    Matched = 'MATCHED',
+    Invalid = 'INVALID',
+    NotMatched = 'NOT_MATCHED'
+}
+
 export interface QuizCharacter extends Character {
-    matched?: boolean;
+    state: QuizCharacterState;
 }
 
 export interface MatchingCharacter extends Character {

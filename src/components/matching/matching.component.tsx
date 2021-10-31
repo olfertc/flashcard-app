@@ -3,11 +3,14 @@ import CHARACTERS, { MatchingCharacter } from '../../character.data';
 
 import './matching-page.styles.scss';
 import MatchingCard from '../matching-card/matching-card.component';
+import { randomizeCharacters } from '../../utils';
 
 const NUM_OF_CARDS = 15;
 
+const randomizedCharacters = randomizeCharacters(CHARACTERS).slice(0, NUM_OF_CARDS);
+
 const Matching = () => {
-  const [matchingChars, setMatchingChars] = useState<MatchingCharacter[]>(CHARACTERS.slice(0, NUM_OF_CARDS));
+  const [matchingChars, setMatchingChars] = useState<MatchingCharacter[]>(randomizedCharacters);
   const [active, setActive] = useState<MatchingCharacter>();
 
   const getKanaCards = () => {
