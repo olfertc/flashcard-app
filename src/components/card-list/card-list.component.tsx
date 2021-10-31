@@ -4,15 +4,15 @@ import { Character } from "../../character.data";
 import './card-list.styles.scss';
 
 interface CardListProps {
-    kana_chars: Character[]
+    characters: Character[]
   }
 
-const CardList = (props: CardListProps) => { // renders the list of all cards
+const CardList = ({ characters }: CardListProps) => { // renders the list of all cards
     // console.log(props);
 
     return (
     <div className='card-list'>
-    { props.kana_chars.map(kana_char => 
+    { characters.map(kana_char => 
         <FlipCard key={kana_char.id} kana_char={kana_char} />
     )}
         </div>

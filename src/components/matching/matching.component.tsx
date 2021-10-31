@@ -1,13 +1,36 @@
 import React, { useState } from 'react';
-import MatchingCardList from '../../components/matching-card-list/matching-card-list.component';
 import CHARACTERS, { MatchingCharacter } from '../../character.data';
 
 import './matching-page.styles.scss';
+import MatchingCard from '../matching-card/matching-card.component';
 
 const NUM_OF_CARDS = 15;
 
-const MatchingPage = () => {
+const Matching = () => {
   const [matchingChars, setMatchingChars] = useState<MatchingCharacter[]>(CHARACTERS.slice(0, NUM_OF_CARDS));
+  const [active, setActive] = useState<MatchingCharacter>();
+
+  const getKanaCards = () => {
+    return matchingChars
+      .filter((_c: MatchingCharacter, index: number) => index < 15)
+      .map((kana_char: MatchingCharacter) => <MatchingCard
+        key={kana_char.id}
+        kana_char={kana_char}
+        setActiveCard={setActiveCard}
+        active={active}
+      />)
+  }
+
+  const setActiveCard = (card: MatchingCharacter) => {
+    if (active) {
+      if (active?.id === card.id) {
+        setMatched(card)
+      }
+      return setActive(null);
+    }
+
+    return setActive(card);
+  };
 
   // setMatchingChars(matchingChars);
   const setMatched = (card: MatchingCharacter) => {
@@ -33,10 +56,12 @@ const MatchingPage = () => {
       <h2>Matching</h2>
       <h3>click on two cards to match the kana with the romaji translation</h3>
       <span className='score'>Score: {score + "/15"}</span>
-      <MatchingCardList kana_chars={matchingChars} setMatched={setMatched} />
+      <div className='matching-card-list'>
+        {getKanaCards()}
+      </div>
     </div>
   )
 }
 
 
-export default MatchingPage;
+export default Matching;

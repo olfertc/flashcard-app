@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import QuizCardList from '../../components/quiz-card-list/quiz-card-list.component';
 import CHARACTERS, { QuizCharacter } from '../../character.data';
 
 import './quiz-page.styles.scss';
+import QuizCard from '../quiz-card/quiz-card.component';
 
 const NUM_OF_CARDS = 16;
 
-const QuizPage = () => {
+type QuizCardListProps = {
+  kana_chars: QuizCharacter[];
+  updateAnswer: (answer: QuizCharacter) => void
+}
+
+const Quiz = () => {
   const [quizChars, setQuizChars] = useState<QuizCharacter[]>(CHARACTERS.slice(0, NUM_OF_CARDS)); // need to get random here
 
   const handleUpdateAnswer = (answer: QuizCharacter) => {
@@ -22,6 +27,11 @@ const QuizPage = () => {
     setQuizChars(updatedAnswers)
   };
 
+  const getRandomKanaCards = () => {
+    return quizChars
+        .map((kana_char: QuizCharacter) => <QuizCard key={kana_char.id} kana_char={kana_char} updateAnswer={handleUpdateAnswer} />)
+  }
+
   const getTotalMatched = () => {
     return quizChars
       .filter((char: QuizCharacter) => char.matched)
@@ -34,9 +44,11 @@ const QuizPage = () => {
       <h2>Quiz</h2>
       <h3>enter the correct romaji translation for each kana</h3>
       <span className='score'>Score: {getTotalMatched() + "/16"}</span>
-      <QuizCardList kana_chars={quizChars} updateAnswer={handleUpdateAnswer} />
+      <div className='quiz-card-list'>
+        {getRandomKanaCards()}
+      </div>
     </div>
   );
 }
 
-export default QuizPage;
+export default Quiz;

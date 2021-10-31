@@ -1,0 +1,13 @@
+.score {
+  color: rgb(19, 134, 19);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.quiz-card-list {
+  width: 85vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 50px 1px;
+}
